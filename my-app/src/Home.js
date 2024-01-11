@@ -1,4 +1,3 @@
-// src/HomePage.js
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 
@@ -41,8 +40,17 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1>Welcome to My Home Page</h1>
-      <div className="cart-summary">
-        <p>Cart Count: {cart.length}</p>
+
+      <div className="cart-display">
+        <h2>Shopping Cart</h2>
+        <ul className="cart-list">
+          {cart.map((cartItem) => (
+            <li key={cartItem.id}>
+              <p>{cartItem.title}</p>
+              <p>Price: ${cartItem.price}</p>
+            </li>
+          ))}
+        </ul>
         <p>Total Amount: ${cartTotal.toFixed(2)}</p>
       </div>
 
